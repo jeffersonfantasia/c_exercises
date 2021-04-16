@@ -1,0 +1,115 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rules03.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jfranchi <jfranchi@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/11 14:17:23 by jfranchi          #+#    #+#             */
+/*   Updated: 2021/04/12 02:28:58 by jfranchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	ft_rule_up5(char *newa, char m[4][4])
+{
+	int c;
+	int i;
+
+	c = 0;
+	i = 0;
+	while (c < 4)
+	{
+		if (newa[c] == '2' && newa[c + 4] == '1')
+		{
+			if (m[0][i] == '0')
+			{
+				m[0][i] = '3';
+				c++;
+				i++;
+			}
+		}
+		else
+			c++;
+		i++;
+	}
+}
+
+void	ft_rule_down6(char *newa, char m[4][4])
+{
+	int c;
+	int i;
+
+	c = 4;
+	i = 0;
+	while (c < 8)
+	{
+		if (newa[c] == '2' && newa[c - 4] == '1')
+		{
+			if (m[3][i] == '0')
+			{
+				m[3][i] = '3';
+				c++;
+				i++;
+			}
+		}
+		else
+			c++;
+		i++;
+	}
+}
+
+void	ft_rule_left7(char *newa, char m[4][4])
+{
+	int c;
+	int i;
+
+	c = 8;
+	i = 0;
+	while (c < 12)
+	{
+		if (newa[c] == '2' && newa[c + 4] == '1')
+		{
+			if (m[i][0] == '0')
+			{
+				m[i][0] = '3';
+				c++;
+				i++;
+			}
+		}
+		else
+			c++;
+		i++;
+	}
+}
+
+void	ft_rule_right8(char *newa, char m[4][4])
+{
+	int c;
+	int i;
+
+	c = 12;
+	i = 0;
+	while (c < 16)
+	{
+		if (newa[c] == '2' && newa[c - 4] == '1')
+		{
+			if (m[i][3] == '0')
+			{
+				m[i][3] = '3';
+				c++;
+				i++;
+			}
+		}
+		else
+			c++;
+		i++;
+	}
+}
+
+void	ft_rules_three(char *newa, char m[4][4])
+{
+	ft_rule_up5(newa, m);
+	ft_rule_down6(newa, m);
+	ft_rule_left7(newa, m);
+	ft_rule_right8(newa, m);
+}
